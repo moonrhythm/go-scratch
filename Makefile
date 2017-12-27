@@ -2,7 +2,6 @@ default: test build push
 
 clean-test:
 	-rm -rf tmp
-	-docker run --name go-scratch-test-run go-scratch:test-run
 	-docker rm go-scratch-test-run
 	-docker rmi go-scratch:test-run
 
@@ -12,6 +11,7 @@ test: clean-test
 	env GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o tmp/test -ldflags '-w -s' test/main.go
 	cp test/Dockerfile tmp/
 	docker build -t go-scratch:test-run tmp
+	docker run -it --name go-scratch-test-run go-scratch:test-run
 	make clean-test
 
 build:

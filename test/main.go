@@ -15,4 +15,5 @@ func main() {
 	if err != nil {
 		log.Fatalf("can not load timezone")
 	}
+	log.Println("test passed")
 }
