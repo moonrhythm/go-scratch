@@ -1,6 +1,9 @@
+FROM alpine as stage
+RUN apk add --update ca-certificates tzdata
+
 FROM scratch
-MAINTAINER Thanatat Tamtan <acoshift@gmail.com>
+LABEL maintainer="Thanatat Tamtan <acoshift@gmail.com>"
 
 ENV GOROOT /usr/local
-ADD https://golang.org/lib/time/zoneinfo.zip /usr/local/lib/time/
-ADD https://curl.haxx.se/ca/cacert.pem /etc/ssl/certs/ca-certificates.crt
+COPY --from=stage /usr/share/zoneinfo /usr/share/zoneinfo
+COPY --from=stage /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
