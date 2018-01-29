@@ -4,9 +4,11 @@ clean-test:
 	-rm -rf tmp
 	-docker rm go-scratch-test-run
 	-docker rmi go-scratch:test-run
+	-docker rmi go-scratch:test
 
 .PHONY: test
 test: clean-test
+	docker build -t go-scratch:test .
 	mkdir -p tmp
 	env GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o tmp/test -ldflags '-w -s' test/main.go
 	cp test/Dockerfile tmp/
