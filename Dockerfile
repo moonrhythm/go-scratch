@@ -1,5 +1,5 @@
 FROM alpine as stage
-RUN apk add --update ca-certificates tzdata
+RUN apk add --no-cache ca-certificates tzdata
 
 FROM scratch
 LABEL maintainer="Thanatat Tamtan <acoshift@gmail.com>"
