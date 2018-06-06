@@ -17,7 +17,7 @@ test: clean-test
 	make clean-test
 
 build:
-	docker build --pull -t acoshift/go-scratch .
+	docker build --pull --no-cache -t acoshift/go-scratch .
 
 push:
 	docker push acoshift/go-scratch
