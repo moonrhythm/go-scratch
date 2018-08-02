@@ -18,7 +18,7 @@ test: clean-test
 
 build:
 	docker build --pull --no-cache -t acoshift/go-scratch .
-	docker build --pull --no-cache -t acoshift/go-alpine .
+	docker build --pull --no-cache -t acoshift/go-alpine -f alpine.Dockerfile .
 
 push:
 	docker push acoshift/go-scratch
