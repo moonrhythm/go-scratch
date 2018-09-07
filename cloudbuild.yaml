@@ -1,0 +1,9 @@
+steps:
+- name: gcr.io/cloud-builders/docker
+  args: [build, -t, gcr.io/$PROJECT_ID/go-scratch, '.']
+- name: gcr.io/cloud-builders/docker
+  args: [build, -t, gcr.io/$PROJECT_ID/go-scratch:alpine, -f, alpine.Dockerfile, '.']
+
+images:
+- gcr.io/$PROJECT_ID/go-scratch
+- gcr.io/$PROJECT_ID/go-scratch:alpine

@@ -5,7 +5,7 @@ Base Image for Golang Web Server
 ## Usage
 
 ```Dockerfile
-FROM acoshift/go-scratch
+FROM gcr.io/moonrhythm-containers/go-scratch
 
 ADD entrypoint /
 EXPOSE 80
@@ -20,7 +20,7 @@ $ docker build -t myapp .
 ## CGO
 
 ```Dockerfile
-FROM acoshift/go-alpine
+FROM gcr.io/moonrhythm-containers/go-scratch:alpine
 
 ADD entrypoint /
 EXPOSE 80
